@@ -1,8 +1,9 @@
 import React from 'react'
 
-export default function SvgFavorite() {
+export default function SvgFavorite({ onFavorite }) {
 	return (
 		<svg
+			onClick={() => onFavorite()}
 			width='32'
 			height='32'
 			viewBox='0 0 32 32'

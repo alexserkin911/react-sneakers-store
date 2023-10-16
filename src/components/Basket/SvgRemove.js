@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function SvgRemove({ onClickClose }) {
+export default function SvgRemove({ onClick }) {
 	return (
 		<svg
-			onClick={onClickClose}
+			onClick={onClick}
 			width='32'
 			height='32'
 			viewBox='0 0 32 32'

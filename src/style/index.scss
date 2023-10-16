@@ -36,6 +36,9 @@ body {
 		display: flex;
 		align-items: center;
 		gap: 10px;
+		svg {
+			cursor: pointer;
+		}
 		span {
 			font-style: normal;
 			font-weight: 400;

@@ -1,35 +1,27 @@
 import React from 'react'
+import BasketItems from '../BasketItems/BasketItems'
 import styles from './Basket.module.scss'
 import SvgArrow from './SvgArrow'
 import SvgRemove from './SvgRemove'
 
-export default function Basket({ onClickClose }) {
+export default function Basket({
+	onClickClose,
+	basketItems = [],
+	onRemoveBasket,
+}) {
 	return (
 		<div className={styles.overlay}>
 			<div className={styles.drawer}>
-				<div className={styles.drawerHeader}>
-					<h2>
-						Корзина
-						<SvgRemove onClickClose={onClickClose} />
-					</h2>
-					<div className={styles.items}>
-						<div className={styles.cartItem}>
-							<img
-								width={70}
-								height={70}
-								src='/img/sneakers/2.jpg'
-								alt='Sneakers'
-							/>
-							<div className={styles.cartInfo}>
-								<p>Мужские Кроссовки Nike Air Max 270</p>
-								<span>12 999 руб.</span>
-							</div>
-							<button>
-								<SvgRemove />
-							</button>
-						</div>
-					</div>
+				<h2>
+					Корзина
+					<SvgRemove onClick={onClickClose} />
+				</h2>
+				<div className={styles.items}>
+					{basketItems.map((el) => (
+						<BasketItems key={el.id} {...el} onRemoveBasket={onRemoveBasket} />
+					))}
 				</div>
+
 				<div className={styles.drawerFooter}>
 					<div className={styles.cartTotalBlock}>
 						<ul>
